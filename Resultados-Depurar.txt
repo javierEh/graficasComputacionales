@@ -1,0 +1,14 @@
+﻿'PrimerTarea.exe' (Win32): 'C:\Users\Javier Esponda\Documents\Visual Studio 2017\Projects\Project1\Debug\PrimerTarea.exe' cargado. Símbolos cargados.
+'PrimerTarea.exe' (Win32): 'C:\Windows\System32\ntdll.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'PrimerTarea.exe' (Win32): 'C:\Windows\System32\kernel32.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'PrimerTarea.exe' (Win32): 'C:\Windows\System32\KernelBase.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'PrimerTarea.exe' (Win32): 'C:\Windows\System32\msvcp140d.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'PrimerTarea.exe' (Win32): 'C:\Windows\System32\vcruntime140d.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'PrimerTarea.exe' (Win32): 'C:\Windows\System32\ucrtbased.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'PrimerTarea.exe' (Win32): 'C:\Windows\System32\kernel.appcore.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'PrimerTarea.exe' (Win32): 'C:\Windows\System32\msvcrt.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'PrimerTarea.exe' (Win32): 'C:\Windows\System32\rpcrt4.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+El subproceso 0x261c terminó con código 0 (0x0).
+El subproceso 0x2104 terminó con código 0 (0x0).
+El subproceso 0x6f0 terminó con código 0 (0x0).
+El programa '[10120] PrimerTarea.exe' terminó con código 0 (0x0).
