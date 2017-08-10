@@ -1,3 +1,9 @@
+/*********************************************************
+Materia: Graficas Computacionales
+Fecha: 10 de agosto de 2017
+Autor: A01374645 Javier Esponda Hernandez
+*********************************************************/
+
 #include <iostream>
 
 //Para no tener que escribir std en cada llamada
