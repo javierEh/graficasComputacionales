@@ -15,7 +15,7 @@ int PerimetroRectangulo(int base, int altura) {
 float AreaTriangulo(float base, float altura) {
 	float area;
 	area = (base * altura) / 2;
-	
+
 	return area;
 }
 
@@ -28,7 +28,7 @@ int Mayor(int numero1, int numero2, int numero3) {
 			return numero3;
 		}
 	}
-	else if(numero2 > numero3) {
+	else if (numero2 > numero3) {
 		return numero2;
 	}
 	else {
@@ -60,7 +60,7 @@ void FilaEstrellas(int n) {
 }
 
 void MatrizEstrellas(int n) {
-	for (int i = 1; i <= n; i++){
+	for (int i = 1; i <= n; i++) {
 		for (int j = 1; j <= n; j++) {
 			cout << "*";
 		}
@@ -115,7 +115,7 @@ void Fibonacci(int n) {
 bool EsPrimo(int numero) {
 	int cont = 0;
 	bool primo;
-	
+
 	for (int i = 1; i < (numero + 1); i++) {
 		if (numero % i == 0) {
 			cont++;
@@ -151,7 +151,7 @@ int main() {
 	//4 Encontrar el numero menor
 	int menor = Menor(5, 9, 1);
 	cout << menor << "\n\n";
-	
+
 	//5 Fila de estrellas con ciclo
 	FilaEstrellas(5);
 	cout << "\n\n";
@@ -176,12 +176,10 @@ int main() {
 	bool primoTrue = EsPrimo(79);
 	cout << primoTrue << "\n\n";
 
-	bool primoFalse = EsPrimo(52);	
+	bool primoFalse = EsPrimo(52);
 	cout << primoFalse;
 
 	//Pausar el programa hasta que alguien oprima una tecla
 	cin.get();
 	return 0;
 }
-
-
