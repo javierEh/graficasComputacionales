@@ -1,3 +1,8 @@
+/*********************************************************
+Materia: Graficas Computacionales
+Fecha: 14/08/17
+Autor: A01374645 Javier Esponda
+*********************************************************/
 #pragma once
 #include <string>
 

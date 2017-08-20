@@ -21,14 +21,19 @@
   <ItemGroup>
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="Employee.cpp" />
+    <ClCompile Include="InputFile.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Rectangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Employee.h" />
+    <ClInclude Include="InputFile.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="Rectangle.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Prueba.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

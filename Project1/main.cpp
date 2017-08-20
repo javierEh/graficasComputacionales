@@ -1,6 +1,6 @@
 /*********************************************************
 Materia: Graficas Computacionales
-Fecha: 10 de agosto de 2017
+Fecha: 20 de agosto de 2017
 Autor: A01374645 Javier Esponda Hernandez
 *********************************************************/
 
@@ -78,6 +78,7 @@ int main(int argc, char* argv[]) {
 }
 */
 
+/*
 #include <iostream>
 #include "Circle.h"
 #include "Rectangle.h"
@@ -282,4 +283,21 @@ int main() {
 	//Pausar el programa hasta que alguien oprima una tecla
 	cin.get();
 	return 0;
+}
+
+*/
+
+//Main para el metodo inputFile
+#include <iostream>
+#include <stdlib.h>
+#include "InputFile.h"
+
+
+int main(int argc, char* argv[]){
+	
+	std::string filename = "Prueba.txt"; InputFile myFile;
+	myFile.Read(filename);
+	std::string contents = myFile.GetContents();
+	std::cout << "Contents: " << contents << std::endl;
+	std::cin.get();
 }

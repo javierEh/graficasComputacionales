@@ -1,6 +1,9 @@
+/*********************************************************
+Materia: Graficas Computacionales
+Fecha: 14/08/17
+Autor: A01374645 Javier Esponda
+*********************************************************/
 #include "Employee.h"
-
-
 
 Employee::Employee(int id, std::string firstName, std::string lastName, int salary){
 	_id = id;
