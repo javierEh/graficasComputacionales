@@ -35,6 +35,10 @@
   <ItemGroup>
     <Text Include="Prueba.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Default.frag" />
+    <None Include="Default.vert" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{2903F3D1-510B-4424-A469-2BBAF97BEA48}</ProjectGuid>
