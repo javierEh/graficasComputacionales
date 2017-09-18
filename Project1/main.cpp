@@ -1,29 +1,25 @@
 /*********************************************************
 Materia: Graficas Computacionales
-Fecha: 20 de agosto de 2017
+Fecha: 18 de septiembre de 2017
 Autor: A01374645 Javier Esponda Hernandez
 *********************************************************/
-
 #include <GL/glew.h>
 #include <GL/freeglut.h>
 #include <iostream>
 #include <glm/glm.hpp>
 #include <vector>
 #include "InputFile.h"
-
 // Identificador del manager al que vamos a asociar todos los VBOs
 GLuint vao;
-
 // Identifcador del manager de los shaders (shaderProgram)
 GLuint shaderProgram;
-
-void Initialize()
-{
+void Initialize() {
 	// Creando toda la memoria que el programa va a utilizar.
 	/*
 	// Creación del atributo de posiciones de los vértices.
 	// Lista de vec2
 	// Claramente en el CPU y RAM
+
 	//Triangulo
 	std::vector<glm::vec2> positions;
 	positions.push_back(glm::vec2(-1.0f, -1.0f));
@@ -35,7 +31,6 @@ void Initialize()
 	colors.push_back(glm::vec3(0.0f, 1.0f, 0.0f));
 	colors.push_back(glm::vec3(0.0f, 0.0f, 1.0f));
 	*/
-
 	/*
 	std::vector<glm::vec2> positions;
 	positions.push_back(glm::vec2(0.0f, 0.0f));
@@ -57,23 +52,34 @@ void Initialize()
 	colors.push_back(glm::vec3(1.0f, 0.0f, 0.0f));
 	colors.push_back(glm::vec3(1.0f, 0.0f, 0.0f));
 	*/
-
 	std::vector<glm::vec2> positions;
 	std::vector<glm::vec3> colors;
-	positions.push_back(glm::vec2(0.0f, 0.0f));
-	colors.push_back(glm::vec3(1.0f, 1.0f, 1.0f));
-	float x, y, a, b;
-	for (float i = 0; i < 360; i++) {
-		x = (float)glm::cos(glm::radians((float)(i)));
-		y = (float)glm::sin(glm::radians((float)(i)));
-		positions.push_back(glm::vec2(x, y));
-		colors.push_back(glm::vec3(x, y, 0.0f));
-	}
-	a = (float)glm::cos(glm::radians((float)(0.0f)));
-	b = (float)glm::sin(glm::radians((float)(0.0f)));
-	positions.push_back(glm::vec2(a, b));
-	colors.push_back(glm::vec3(1.0f, 0.0f, 0.0f));
 
+
+	positions.push_back(glm::vec2((float)glm::cos(glm::radians((float)(234))), (float)glm::sin(glm::radians((float)(234)))));
+	positions.push_back(glm::vec2((float)glm::cos(glm::radians((float)(234))) / 2.0f, (float)glm::sin(glm::radians((float)(234))) / 2.0f));
+	positions.push_back(glm::vec2((float)glm::cos(glm::radians((float)(162))), (float)glm::sin(glm::radians((float)(162)))));
+	positions.push_back(glm::vec2((float)glm::cos(glm::radians((float)(162))) / 2.0f, (float)glm::sin(glm::radians((float)(162))) / 2.0f));
+	positions.push_back(glm::vec2(0.0f, 1.0f));
+	positions.push_back(glm::vec2(0.0f, 0.5f));
+	positions.push_back(glm::vec2((float)glm::cos(glm::radians((float)(18))), (float)glm::sin(glm::radians((float)(18)))));
+	positions.push_back(glm::vec2((float)glm::cos(glm::radians((float)(18))) / 2.0f, (float)glm::sin(glm::radians((float)(18))) / 2.0f));
+	positions.push_back(glm::vec2((float)glm::cos(glm::radians((float)(306))), (float)glm::sin(glm::radians((float)(306)))));
+	positions.push_back(glm::vec2((float)glm::cos(glm::radians((float)(306))) / 2.0f, (float)glm::sin(glm::radians((float)(306))) / 2.0f));
+	positions.push_back(glm::vec2((float)glm::cos(glm::radians((float)(234))), (float)glm::sin(glm::radians((float)(234)))));
+	positions.push_back(glm::vec2((float)glm::cos(glm::radians((float)(234))) / 2.0f, (float)glm::sin(glm::radians((float)(234))) / 2.0f));
+	colors.push_back(glm::vec3(1.0f, 0.0f, 0.0f));
+	colors.push_back(glm::vec3(1.0f, 0.0f, 0.0f));
+	colors.push_back(glm::vec3(1.0f, 0.0f, 0.0f));
+	colors.push_back(glm::vec3(1.0f, 0.0f, 0.0f));
+	colors.push_back(glm::vec3(1.0f, 0.0f, 0.0f));
+	colors.push_back(glm::vec3(1.0f, 0.0f, 0.0f));
+	colors.push_back(glm::vec3(1.0f, 0.0f, 0.0f));
+	colors.push_back(glm::vec3(1.0f, 0.0f, 0.0f));
+	colors.push_back(glm::vec3(1.0f, 0.0f, 0.0f));
+	colors.push_back(glm::vec3(1.0f, 0.0f, 0.0f));
+	colors.push_back(glm::vec3(1.0f, 0.0f, 0.0f));
+	colors.push_back(glm::vec3(1.0f, 0.0f, 0.0f));
 
 	// Queremos generar 1 manager
 	glGenVertexArrays(1, &vao);
@@ -115,7 +121,7 @@ void Initialize()
 	// VERTEX SHADER
 	// Leemos el archivo Default.vert donde está
 	// el código del vertex shader.
-	ifile.Read("DiscardCenter.vert");
+	ifile.Read("Default.vert");
 	// Obtenemos el código fuente y lo guardamos
 	// en un string
 	std::string vertexSource = ifile.GetContents();
@@ -134,7 +140,7 @@ void Initialize()
 	// Vamos a asumir que no hay ningún error.
 	glCompileShader(vertexShaderHandle);
 
-	ifile.Read("DiscardCenter.frag");
+	ifile.Read("Default.frag");
 	std::string fragmentSource = ifile.GetContents();
 	GLuint fragmentShaderHandle = glCreateShader(GL_FRAGMENT_SHADER);
 	const GLchar *fragmentSource_c = (const GLchar*)fragmentSource.c_str();
@@ -168,7 +174,7 @@ void GameLoop()
 	// VBOs asociados automáticamente.
 	glBindVertexArray(vao);
 	// Función de dibujado sin indices.
-	glDrawArrays(GL_TRIANGLE_FAN, 0, 362);
+	glDrawArrays(GL_TRIANGLE_STRIP, 0, 12);
 	// Terminamos de utilizar el manager
 	glBindVertexArray(0);
 	// Desactivamos el manager
