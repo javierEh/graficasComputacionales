@@ -1,16 +1,16 @@
-#include <Shader.h>
-#include <InputFile.h>
+#include "Shader.h"
+#include "InputFile.h"
 
-Shader::Shader() {
+Shader::Shader(){
 	_shaderHandle = 0;
 }
 
-Shader::~Shader() {
+Shader::~Shader(){
 	glDeleteShader(_shaderHandle);
 }
 
-void Shader::CreateShader(std::string path, GLenum type) {
-	if (_shaderHandle != 0) {
+void Shader::CreateShader(std::string path, GLenum type){
+	if (_shaderHandle != 0){
 		glDeleteShader(_shaderHandle);
 	}
 
@@ -24,6 +24,6 @@ void Shader::CreateShader(std::string path, GLenum type) {
 	glCompileShader(_shaderHandle);
 }
 
-GLuint Shader::GetHandle() {
+GLuint Shader::GetHandle(){
 	return _shaderHandle;
 }
