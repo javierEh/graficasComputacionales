@@ -1,6 +1,5 @@
 #include "Mesh.h"
 
-<<<<<<< HEAD
 
 /*********************************************************
 Materia: Gráficas Computacionales
@@ -10,11 +9,8 @@ Autor: A01374645 Javier Esponda
 *********************************************************/
 
 Mesh::Mesh() {
-=======
-Mesh::Mesh(){//El constructor inicializa los valores por default de las variables.
->>>>>>> 480ad849081d5f13c666b4ebc2401ab4f448d68f
 	_vertexArrayObject = 0;
-	_positionsVertexBufferObject= 0;
+	_positionsVertexBufferObject = 0;
 	_colorsVertexBufferObject = 0;
 	_vertexCount = 0;
 
@@ -23,28 +19,17 @@ Mesh::Mesh(){//El constructor inicializa los valores por default de las variable
 
 }
 
-<<<<<<< HEAD
 Mesh::~Mesh() {
 	glDeleteBuffers(1, &_positionsVertexBufferObject);
 	glDeleteBuffers(1, &_colorsVertexBufferObject);
-=======
-Mesh::~Mesh(){
-	//El destructor borra el VAO y todos los VBOs. (Opcional +2 puntos)
-	//Tenemos que borrar el vao, las posiciones y los colores
->>>>>>> 480ad849081d5f13c666b4ebc2401ab4f448d68f
 	glDeleteVertexArrays(1, &_vertexArrayObject);
 }
 
-<<<<<<< HEAD
 void Mesh::CreateMesh(GLuint vertexCount) {
-=======
-void Mesh::CreateMesh(GLint vertexCount){
->>>>>>> 480ad849081d5f13c666b4ebc2401ab4f448d68f
 	_vertexCount = vertexCount;
 	glGenVertexArrays(1, &_vertexArrayObject);
 }
 
-<<<<<<< HEAD
 void Mesh::Draw(GLenum primitive) {
 	glBindVertexArray(_vertexArrayObject);
 	if (_indexCount == 0) {
@@ -77,30 +62,6 @@ void Mesh::SetPositionAttribute(vector<vec3> positions, GLenum usage, GLuint loc
 
 void Mesh::SetColorAttribute(vector<vec3> colors, GLenum usage, GLuint locationIndex) {
 	if (colors.size() == 0 || colors.size() != _vertexCount) {
-=======
-void Mesh::Draw(GLenum primitive){
-	glDrawArrays(primitive, 0, _vertexCount);
-}
-
-void Mesh::SetPositionAttribute(std::vector<glm::vec2> positions, GLenum usage, GLuint locationIndex){
-	if (positions.size() == 0 || positions.size() != _vertexCount){
-		return;
-	}	
-
-	SetAttributeData(_positionsVertexBufferObject, sizeof(glm::vec2) * positions.size(), positions.data(), usage, locationIndex, 2);
-}
-
-void Mesh::SetPositionAttribute(std::vector<glm::vec3> positions, GLenum usage, GLuint locationIndex){
-	if (positions.size() == 0 || positions.size() != _vertexCount){
-		return;
-	}	
-
-	SetAttributeData(_positionsVertexBufferObject, sizeof(glm::vec3) * positions.size(), positions.data(), usage, locationIndex, 3);
-}
-
-void Mesh::SetColorAttribute(std::vector<glm::vec3> colors, GLenum usage, GLuint locationIndex){
-	if (colors.size() == 0 || colors.size() != _vertexCount){
->>>>>>> 480ad849081d5f13c666b4ebc2401ab4f448d68f
 		return;
 	}
 	else {
@@ -108,13 +69,8 @@ void Mesh::SetColorAttribute(std::vector<glm::vec3> colors, GLenum usage, GLuint
 	}
 }
 
-<<<<<<< HEAD
 void Mesh::SetColorAttribute(vector<vec4> colors, GLenum usage, GLuint locationIndex) {
 	if (colors.size() == 0 || colors.size() != _vertexCount) {
-=======
-void Mesh::SetColorAttribute(std::vector<glm::vec4> colors, GLenum usage, GLuint locationIndex) {
-	if (colors.size() == 0 || colors.size() != _vertexCount){
->>>>>>> 480ad849081d5f13c666b4ebc2401ab4f448d68f
 		return;
 	}
 	else {
@@ -134,7 +90,6 @@ void Mesh::SetIndices(vector<unsigned int> indices, GLenum usage) {
 	}
 }
 
-<<<<<<< HEAD
 void Mesh::SetAttributeData(GLuint & buffer, const GLsizeiptr size, const void * data, GLenum usage, GLuint locationIndex, const GLuint components) {
 	if (buffer != 0) {
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -142,11 +97,6 @@ void Mesh::SetAttributeData(GLuint & buffer, const GLsizeiptr size, const void *
 	glBindVertexArray(_vertexArrayObject);
 	glGenBuffers(1, &buffer);
 	// Activamos el buffer de posiciones para poder utilizarlo, este buffer ES UN ATRIBUTO (GL ARRAY BUFFER)
-=======
-void Mesh::SetAttributeData(GLuint& buffer, const GLsizeiptr size, const void * data, GLenum usage, GLuint locationIndex, const GLint components){
-	glDeleteBuffers(1, &buffer);
-	glGenBuffers(1, &buffer);
->>>>>>> 480ad849081d5f13c666b4ebc2401ab4f448d68f
 	glBindBuffer(GL_ARRAY_BUFFER, buffer);
 	// Creamos la memoria y la inicializamos con los datos del atributo de posiciones
 	glBufferData(GL_ARRAY_BUFFER, size, data, usage);
@@ -156,10 +106,6 @@ void Mesh::SetAttributeData(GLuint& buffer, const GLsizeiptr size, const void * 
 	glVertexAttribPointer(locationIndex, components, GL_FLOAT, GL_FALSE, 0, nullptr);
 	// Ya no vamos a utilizar este Vertex Buffer Object en este momento
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
-<<<<<<< HEAD
 	glBindVertexArray(0);
 
 }
-=======
-}
->>>>>>> 480ad849081d5f13c666b4ebc2401ab4f448d68f
