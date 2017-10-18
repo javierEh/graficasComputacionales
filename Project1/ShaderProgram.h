@@ -1,88 +1,36 @@
-#include "ShaderProgram.h"
-#include <glm/gtc/type_ptr.hpp>
+#pragma once
+#include <string>
+#include <GL/glew.h>
+#include <GL/freeglut.h>
+#include <glm/glm.hpp>
+#include <vector>
+#include <memory>
+#include "shader.h"
+using namespace std;
+using namespace glm;
 
-ShaderProgram::ShaderProgram() {
-	_programHandle = 0;
-}
+class ShaderProgram {
+public:
+	ShaderProgram();
+	~ShaderProgram();
 
-ShaderProgram::~ShaderProgram() {
-	DeleteProgram();
-}
+	void CreateProgram();
+	void AttachShader(string path, GLenum type);
+	void LinkProgram();
+	void Activate();
+	void Desactivate();
+	void SetAttribute(GLuint locationIndex, string name);
+	void SetUniformf(string name, float value);
+	void SetUniformf(string name, float x, float y);
+	void SetUniformf(string name, float x, float y, float z);
+	void SetUniformf(string name, float x, float y, float z, float w);
+	void SetUniformMatrix(string name, mat4 matrix);
 
-void ShaderProgram::CreateProgram() {
-	// Regresa el identificador de este manager
-	// Creamos el identificador para el manager de los shaders
-	_programHandle = glCreateProgram();
 
-}
+private:
+	GLuint _programHandle;
+	vector<unique_ptr<shader>> _attachedShaders;
 
-void ShaderProgram::AttachShader(string path, GLenum type) {
-	// Create and add the shaders to a list
-	unique_ptr<shader> shader(new shader);
-	shader->CreateShader(path, type);
-	_attachedShaders.push_back(move(shader));
-}
-
-void ShaderProgram::LinkProgram() {
-	for (int i = 0; i<_attachedShaders.size(); i++) {
-		glAttachShader(_programHandle, _attachedShaders.at(i).get()->getHandle());
-	}
-	glLinkProgram(_programHandle);
-	DeleteAndDetachShaders();
-}
-
-void ShaderProgram::Activate() {
-	// Activamos el vertexShader y el fragmentShader utilizando el manager
-	glUseProgram(_programHandle);
-}
-
-void ShaderProgram::Desactivate() {
-	// Desactivamos el manager shaderProgram
-	glUseProgram(0);
-}
-
-void ShaderProgram::SetAttribute(GLuint locationIndex, string name) {
-	// Asociamos un buffer con índice 0 (posiciones) a la variable VertexPosition
-	glBindAttribLocation(_programHandle, locationIndex, name.c_str());
-}
-
-void ShaderProgram::SetUniformf(string name, float value) {
-	//para configurar un uniform, tenemos que 
-	//decirle a openGL que vamos a utilizar 
-	//shader program(manage)
-
-	GLint  uniformLocation = glGetUniformLocation(_programHandle, name.c_str());
-	glUniform1f(uniformLocation, value);
-}
-
-void ShaderProgram::SetUniformf(string name, float x, float y) {
-	GLint  uniformLocation = glGetUniformLocation(_programHandle, name.c_str());
-	glUniform2f(uniformLocation, x, y);
-}
-
-void ShaderProgram::SetUniformf(string name, float x, float y, float z) {
-	GLint  uniformLocation = glGetUniformLocation(_programHandle, name.c_str());
-	glUniform3f(uniformLocation, x, y, z);
-}
-
-void ShaderProgram::SetUniformf(string name, float x, float y, float z, float w) {
-	GLint  uniformLocation = glGetUniformLocation(_programHandle, name.c_str());
-	glUniform4f(uniformLocation, x, y, z, w);
-}
-
-void ShaderProgram::SetUniformMatrix(string name, mat4 matrix) {
-	GLuint uniformLocation = glGetUniformLocation(_programHandle, name.c_str());
-	glUniformMatrix4fv(uniformLocation, 1, GL_FALSE, value_ptr(matrix));
-}
-
-void ShaderProgram::DeleteAndDetachShaders() {
-	for (int i = 0; i < _attachedShaders.size(); i++) {
-		glDetachShader(_programHandle, _attachedShaders[i].get()->getHandle());
-	}
-	_attachedShaders.clear();
-}
-
-void ShaderProgram::DeleteProgram() {
-	DeleteAndDetachShaders();
-	glDeleteProgram(_programHandle);
-}
+	void DeleteAndDetachShaders();
+	void DeleteProgram();
+};
